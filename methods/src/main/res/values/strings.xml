@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Methods</string>
+    <string name="error">خطایی در اجرای درخواست رخ داد. لطفا بعدا امتحان کنید</string>
+    <string name="please_wait">لطفا چند لحظه صبر کنید</string>
+</resources>
