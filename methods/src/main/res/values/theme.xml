@@ -2,7 +2,7 @@
 <resources>
     <style name="SpinnerTheme" parent="android:Theme.Holo.Dialog">
         <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
-        <item name="android:windowBackground">#00ffffff</item>
+        <item name="android:windowBackground">@color/m_transparent</item>
         <item name="android:textColorPrimary">#FFFFFF</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:textColor">#FFFFFF</item>
@@ -10,15 +10,15 @@
         <item name="android:textSize">12sp</item>
     </style>
     <style name="CustomAlertDialogStyle">
-        <item name="android:bottomBright">#00ffffff</item>
-        <item name="android:bottomDark">#00ffffff</item>
-        <item name="android:bottomMedium">#00ffffff</item>
-        <item name="android:centerBright">#00ffffff</item>
-        <item name="android:centerDark">#00ffffff</item>
-        <item name="android:centerMedium">#00ffffff</item>
-        <item name="android:fullBright">#00ffffff</item>
-        <item name="android:fullDark">#00ffffff</item>
-        <item name="android:topBright">#00ffffff</item>
-        <item name="android:topDark">#00ffffff</item>
+        <item name="android:bottomBright">@color/m_transparent</item>
+        <item name="android:bottomDark">@color/m_transparent</item>
+        <item name="android:bottomMedium">@color/m_transparent</item>
+        <item name="android:centerBright">@color/m_transparent</item>
+        <item name="android:centerDark">@color/m_transparent</item>
+        <item name="android:centerMedium">@color/m_transparent</item>
+        <item name="android:fullBright">@color/m_transparent</item>
+        <item name="android:fullDark">@color/m_transparent</item>
+        <item name="android:topBright">@color/m_transparent</item>
+        <item name="android:topDark">@color/m_transparent</item>
     </style>
 </resources>
