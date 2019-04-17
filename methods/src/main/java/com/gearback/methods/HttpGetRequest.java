@@ -7,12 +7,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 
 public class HttpGetRequest extends AsyncTask<String, Void, String> {
     private static final String REQUEST_METHOD = "GET";
-    private static final int READ_TIMEOUT = 15000;
-    private static final int CONNECTION_TIMEOUT = 15000;
+    private static final int READ_TIMEOUT = 10000;
+    private static final int CONNECTION_TIMEOUT = 10000;
     private Context activity;
     private Methods methods = new Methods();
     private final HttpGetRequest.TaskListener taskListener;
@@ -58,7 +59,12 @@ public class HttpGetRequest extends AsyncTask<String, Void, String> {
         }
         catch(IOException e){
             e.printStackTrace();
-            result = "";
+            if (e instanceof SocketTimeoutException) {
+                result = "*SOCKET*";
+            }
+            else {
+                result = "";
+            }
         }
 
         return result;

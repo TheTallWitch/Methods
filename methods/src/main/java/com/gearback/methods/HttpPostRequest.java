@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.nio.charset.Charset;
 
@@ -15,8 +16,8 @@ import java.nio.charset.Charset;
 public class HttpPostRequest extends AsyncTask<String, Void, String> {
 
     private static final String REQUEST_METHOD = "POST";
-    private static final int READ_TIMEOUT = 30000;
-    private static final int CONNECTION_TIMEOUT = 30000;
+    private static final int READ_TIMEOUT = 10000;
+    private static final int CONNECTION_TIMEOUT = 10000;
     private WeakReference<Activity> context;
     private Methods methods = new Methods();
     private final TaskListener taskListener;
@@ -70,7 +71,12 @@ public class HttpPostRequest extends AsyncTask<String, Void, String> {
         }
         catch(IOException e){
             e.printStackTrace();
-            result = "";
+            if (e instanceof SocketTimeoutException) {
+                result = "*SOCKET*";
+            }
+            else {
+                result = "";
+            }
         }
 
         return result;
