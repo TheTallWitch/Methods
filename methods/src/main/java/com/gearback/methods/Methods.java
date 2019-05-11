@@ -173,7 +173,7 @@ public class Methods {
 
             File imagePath = new File(activity.getCacheDir(), "images");
             File newFile = new File(imagePath, "image.png");
-            Uri contentUri = FileProvider.getUriForFile(activity, "com.gearback.zt.ledscroller.fileprovider", newFile);
+            Uri contentUri = FileProvider.getUriForFile(activity, activity.getPackageName() + ".fileprovider", newFile);
 
             if (contentUri != null) {
                 Intent shareIntent = new Intent();
