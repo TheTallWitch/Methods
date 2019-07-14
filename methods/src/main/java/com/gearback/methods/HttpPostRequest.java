@@ -1,6 +1,7 @@
 package com.gearback.methods;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
@@ -16,8 +17,8 @@ import java.nio.charset.Charset;
 public class HttpPostRequest extends AsyncTask<String, Void, String> {
 
     private static final String REQUEST_METHOD = "POST";
-    private static final int READ_TIMEOUT = 10000;
-    private static final int CONNECTION_TIMEOUT = 10000;
+    private int READ_TIMEOUT = 10000;
+    private int CONNECTION_TIMEOUT = 10000;
     private WeakReference<Activity> context;
     private Methods methods = new Methods();
     private final TaskListener taskListener;
@@ -25,6 +26,13 @@ public class HttpPostRequest extends AsyncTask<String, Void, String> {
     public HttpPostRequest(Activity activity, TaskListener listener) {
         this.context = new WeakReference<Activity>(activity);
         taskListener = listener;
+    }
+
+    public HttpPostRequest(Activity activity, int timeout, HttpPostRequest.TaskListener listener) {
+        this.context = new WeakReference<Activity>(activity);
+        taskListener = listener;
+        READ_TIMEOUT = timeout;
+        CONNECTION_TIMEOUT = timeout;
     }
 
     @Override

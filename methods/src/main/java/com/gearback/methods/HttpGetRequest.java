@@ -12,8 +12,8 @@ import java.net.URL;
 
 public class HttpGetRequest extends AsyncTask<String, Void, String> {
     private static final String REQUEST_METHOD = "GET";
-    private static final int READ_TIMEOUT = 10000;
-    private static final int CONNECTION_TIMEOUT = 10000;
+    private int READ_TIMEOUT = 10000;
+    private int CONNECTION_TIMEOUT = 10000;
     private Context activity;
     private Methods methods = new Methods();
     private final HttpGetRequest.TaskListener taskListener;
@@ -21,6 +21,13 @@ public class HttpGetRequest extends AsyncTask<String, Void, String> {
     public HttpGetRequest(Context activity, HttpGetRequest.TaskListener listener) {
         this.activity = activity;
         taskListener = listener;
+    }
+
+    public HttpGetRequest(Context activity, int timeout, HttpGetRequest.TaskListener listener) {
+        this.activity = activity;
+        taskListener = listener;
+        READ_TIMEOUT = timeout;
+        CONNECTION_TIMEOUT = timeout;
     }
 
     @Override
